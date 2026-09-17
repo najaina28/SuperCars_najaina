@@ -1,0 +1,384 @@
+/* Couleurs et variables */
+:root {
+    --primary-orange: #E67E22;
+    --bg-light: #f4f4f4;
+}
+
+body {
+    background-color: #f4f4f4 !important;
+    max-width: 100%;
+}
+
+
+/* Section Image (Hero) */
+.custom-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    /* prend toute la hauteur écran */
+    overflow: hidden;
+}
+
+.carousel-item {
+    height: 60vh;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* TEXTE AU CENTRE */
+.hero-text {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+    max-width: 600px;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+/* Animations globales */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FLÈCHES BOOTSTRAP */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+    opacity: 0.8;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+/* Barre de recherche et filtres */
+
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    /* mettre tous meme hauteur */
+    max-width: 400px;
+    position: relative;
+    border-radius: 50px;
+    /* Fusion visuelle input + bouton */
+    overflow: hidden;
+    /* Pour que les coins arrondis restent nets */
+}
+
+.search-box input {
+    flex: 1;
+    /* Prend tout espace restant */
+    padding: 12px 20px;
+    border: 1px solid #ddd;
+    border-right: none;
+    /* Pas de double bordure avec le bouton */
+    border-radius: 0;
+    /* Radius gere par .search-box */
+    outline: none;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.search-box input:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.1);
+}
+
+.search-btn {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-left: none;
+    /* Pas de double bordure */
+    background: var(--primary-orange);
+    color: white;
+    cursor: pointer;
+    border-radius: 0;
+    /* Radius gere par .search-box */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.search-btn:hover {
+    background: #cf711f;
+}
+
+#suggestions {
+    position: absolute;
+    top: 100%;
+    /* juste en dessous du champ */
+    left: 0;
+    right: 0;
+    /* pour s’aligner sur toute la largeur du parent */
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Items */
+#suggestions li {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+#suggestions li:hover {
+    background: rgba(230, 126, 34, 0.08);
+    color: var(--primary-orange);
+}
+
+#suggestions:empty {
+    display: none;
+}
+
+/* Boutons Filtres */
+.filter-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-buttons i.fa-bars {
+    font-size: 1.2rem;
+    color: #555;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Boutons */
+.btn-orange {
+    background-color: var(--primary-orange) !important;
+    color: white !important;
+    border: none;
+    border-radius: 8px;
+    /* Maquette shows slightly rounded square for active state? Or pills? Assume maquette has pills or rounded buttons. */
+    border-radius: 8px;
+    padding: 8px 25px;
+    font-weight: 500;
+}
+
+/* If the mockup shows pills for the other tags */
+.btn-light {
+    background: #e9ecef;
+    border: none;
+    color: #555;
+    border-radius: 8px;
+    padding: 8px 25px;
+    font-weight: 500;
+}
+
+.btn-light:hover {
+    background: #dde0e3;
+    color: #333;
+}
+
+
+/* Boutons Généraux */
+.btn-orange-outline {
+    border: 2px solid var(--primary-orange);
+    color: var(--primary-orange);
+    font-weight: 600;
+    border-radius: 25px;
+    padding: 6px 20px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+    background: transparent;
+}
+
+.btn-orange-outline:hover {
+    background: var(--primary-orange) !important;
+    color: white !important;
+    text-decoration: none;
+}
+
+/* Cartes de voitures */
+.car-card {
+    background: white;
+    border-radius: 12px;
+    /* Slightly less rounded than 15px maybe? */
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #f0f0f0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-orange);
+    box-shadow: 0 4px 20px rgba(230, 126, 34, 0.15);
+}
+
+.car-card .p-3 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Footer of the card (Price + Button) */
+.car-card .p-3>div:last-child {
+    margin-top: auto !important;
+}
+
+.car-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.car-specs {
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.car-specs span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.price {
+    font-weight: 800;
+    color: var(--primary-orange);
+    font-size: 1.25rem;
+}
+
+/* Bannière orange en bas */
+.contact-banner {
+    background: var(--primary-orange);
+    color: white;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(230, 126, 34, 0.2);
+}
+
+.contact-banner h5 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.btn-white {
+    background: white;
+    color: var(--primary-orange);
+    font-weight: 600;
+    border-radius: 25px;
+    padding: 10px 30px;
+    text-decoration: none;
+    border: 2px solid white;
+}
+
+.btn-white:hover {
+    background: white !important;
+    color: var(--primary-orange) !important;
+    font-weight: 600;
+    border-radius: 25px;
+    padding: 10px 30px;
+    text-decoration: none !important;
+    border: 2px solid white;
+    transform: none !important;
+}
+
+/* Animations d'affichage progressif */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.car-item-animate {
+    opacity: 0;
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+/* RESPONSIVITÉ MOBILE POUR HERO TEXT ET ANIMATIONS */
+@media (max-width: 768px) {
+    .hero-slider, .carousel-item {
+        height: 50vh;
+    }
+
+    .hero-text {
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        max-width: 90%;
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+}
