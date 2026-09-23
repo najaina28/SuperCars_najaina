@@ -1,6 +1,24 @@
 <?php
 
 
+function getAllMarques($bdd) {
+    $marques_all = [];
+
+    $sql = "SELECT 
+                id_marque,
+                nom_marque
+            FROM marques";
+
+    $requete_query = mysqli_query($bdd, $sql);
+
+    while ($marque = mysqli_fetch_assoc($requete_query)) {
+        $marques_all[] = $marque;
+    }
+
+    return $marques_all;
+}
+
+
 function selectAllVoiture($conn) {
     $voiture_all = [];
 
@@ -135,6 +153,63 @@ function updateVoiture(
 
     return mysqli_stmt_execute($stmt);
 }
+
+function insertionVoiture(
+    $conn,
+    $modele,
+    $prix,
+    $datesortie,
+    $kilometrage,
+    $boite_de_vitesse,
+    $carburant,
+    $puissance,
+    $couleur,
+    $provenance,
+    $details,
+    $id_marque,
+    $disponibilite = 1
+) {
+    $sql = "INSERT INTO voiture (
+                modele,
+                prix,
+                datesortie,
+                kilometrage,
+                boite_de_vitesse,
+                carburant,
+                puissance,
+                couleur,
+                provenance,
+                details,
+                id_marque,
+                disponibilite
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+ 
+    $stmt = mysqli_prepare($conn, $sql);
+ 
+    mysqli_stmt_bind_param(
+        $stmt,
+        "sdsississsii",
+        $modele,
+        $prix,
+        $datesortie,
+        $kilometrage,
+        $boite_de_vitesse,
+        $carburant,
+        $puissance,
+        $couleur,
+        $provenance,
+        $details,
+        $id_marque,
+        $disponibilite
+    );
+ 
+    if (mysqli_stmt_execute($stmt)) {
+        return mysqli_insert_id($conn);
+    }
+    return false;
+}
+ 
 
 function UpdateImage($conn, $id, $url, $idvoiture, $priority)
 {

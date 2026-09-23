@@ -206,6 +206,8 @@ function GetVoiturePopulaire($conn){
     $sql = "SELECT nbr,modele FROM
     (SELECT COUNT(d.id_demande) as nbr,v.modele as modele FROM demande_essai d 
     LEFT JOIN voiture v ON d.idvoiture = v.idvoiture GROUP BY d.idvoiture) as stat ORDER BY nbr DESC Limit 3";
+    //Mila atao DELETE ON Cascade le base de donnees pour que les demande sont supprimer lors du suppression de voiture
+
 
     $stmt = mysqli_prepare($conn, $sql);
 

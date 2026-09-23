@@ -15,7 +15,6 @@ if($type == "date"){
 
     foreach ($result as $row) {
         $html .=  "<tr>
-        <td>{$row['id']}</td>
         <td>{$row['modele']}</td>
         <td>{$row['daty']}</td>
         <td>{$row['nom']}</td>
@@ -52,7 +51,6 @@ if($type == "date"){
 
     foreach ($result as $row) {
         $html .=  "<tr>
-        <td>{$row['id']}</td>
         <td>{$row['modele']}</td>
         <td>{$row['daty']}</td>
         <td>{$row['nom']}</td>

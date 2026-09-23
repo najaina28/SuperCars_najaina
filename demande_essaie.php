@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+// Protection : réservé aux admins
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('location: loginAdmin.php');
+    exit();
+}
+
 include("backend/connexion.php");
 include("backend/gestion_demande/FonctionDemande.php");
 
@@ -23,7 +30,10 @@ $Demande_essai_Date = filtrerDemandeDate($bdd,"2026-03-18");
 
     <main class="content">
         <header class="header-section">
-            <h1>Demandes d'essai</h1>
+            <div class="page-header-left">
+                <h1><i class="bi bi-calendar-check"></i> Liste des demandes </h1>
+                <p>Gérez facilement les demandes d’essai de véhicules envoyées par les visiteurs de votre site Supercar.</p>
+            </div>
             <div class="filter-group">
                 <span>Filtrer :</span>
                 <button class="btn-filter" data-type="date">Date</button>
@@ -32,12 +42,11 @@ $Demande_essai_Date = filtrerDemandeDate($bdd,"2026-03-18");
         </header>
 
         
-            <p id= "resultat"></p>
+        <p id= "resultat"></p>
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
                         <th>Modele</th>
                         <th>Date essai</th>
                         <th>Client</th>
@@ -49,8 +58,6 @@ $Demande_essai_Date = filtrerDemandeDate($bdd,"2026-03-18");
         <tbody id="table-body">
         <?php foreach($Demande_essai as $essai) { ?>
         <tr>
-
-            <td><?php echo $essai['id']; ?></td>
             <td><?php echo $essai['modele']; ?></td>
             <td><?php echo $essai['daty']; ?></td>
             <td><?php echo $essai['nom']; ?></td>

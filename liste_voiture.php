@@ -1,5 +1,12 @@
 <?php 
 
+session_start();
+// Protection : réservé aux admins
+if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header('location: loginAdmin.php');
+    exit();
+}
+
 include 'backend/gestion_detail/fonctionDetail.php';
 include 'backend/connexion.php';
 

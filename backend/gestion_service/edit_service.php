@@ -3,7 +3,7 @@ include 'fonctionService.php';
 
 $id = $_GET['id'];
 
-$services = getAllService($bdd);
+$services = selectAllService($bdd);
 
 
 $sql = "SELECT * FROM service WHERE id_service = ?";

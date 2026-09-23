@@ -235,3 +235,7 @@ VALUES (
     'cedric@supercar.com', 
     '$2y$10$507uRrxzJLNDCZK5PLq7l.MZE4YeM2AtrBKGFrSRw6DEdnrbDUaS6'
 );
+
+
+INSERT INTO login (id_client, mot_de_passe, role, date_inscription)
+VALUES (1, 'motdepasse123', 'admin', CURDATE());

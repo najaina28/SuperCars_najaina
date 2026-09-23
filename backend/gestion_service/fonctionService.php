@@ -2,12 +2,6 @@
 if (file_exists('backend/connexion.php')) include 'backend/connexion.php';
 else if (file_exists('../connexion.php')) include '../connexion.php';
 
-function getAllService() {
-    global $bdd;
-    $sql = "SELECT * FROM service";
-    return $bdd->query($sql);
-}
-
 
 function selectAllService($conn) {
     $service_all = [];

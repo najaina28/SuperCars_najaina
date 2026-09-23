@@ -1,143 +1,448 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    background-color: #ffffff;
-}
-
-
-
-/* Importation d'une police propre (type Roboto ou sans-serif) */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ffffff;
-    margin: 0;
-    padding: 20px;
-    color: #333;
+    background: #ffffff;
+    color: #1a1a2e;
+    font-family: inherit;
 }
 
-/* En-tête et Filtres */
+.content {
+    width: 100%;
+    background-color: white;
+    min-width: 0;
+    padding: 2rem;
+}
+
+
 .header-section {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
 }
 
-.header-section h1 {
-    font-size: 1.5rem;
-    font-weight: bold;
+.page-header-left {
+    min-width: 0;
+    flex: 1;
+}
+
+.page-header-left h1 {
+    margin: 0 0 .35rem 0;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a2e;
+}
+
+.page-header-left h1 i {
+    color: #ff9f43;
+    font-size: 1.7rem;
+}
+
+.page-header-left p {
+    margin: 0;
+    color: #6b6b8a;
+    font-size: .9rem;
+    line-height: 1.5;
 }
 
 .filter-group {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: .5rem;
+
+    padding: .5rem .6rem;
+
+    background: #ffffff;
+    border: 1px solid #e8e8f0;
+    border-radius: 12px;
+
+    white-space: nowrap;
 }
 
-/* Boutons Orange */
-.btn-filter, .btn-valider, .btn-confirmer {
-    background-color: #ff9f43;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 25px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: background 0.3s ease;
+.filter-group span {
+    margin-right: .25rem;
+
+    color: #6b6b8a;
+    font-size: .85rem;
+    font-weight: 600;
 }
 
-.btn-filter:hover, .btn-valider:hover, .btn-confirmer:hover {
-    background-color: #e67e22;
-}
-
-/* Tableau */
-/* On s'assure que le main occupe 100% de l'espace à côté du menu */
-.content {
-    flex-grow: 1;
-    padding: 40px;
-    width: 100%; /* Ajouté pour forcer l'occupation de l'espace */
-    box-sizing: border-box;
-    background-color: #ffffff;
-}
-
-/* Le conteneur du tableau doit prendre toute la largeur disponible */
-.table-container {
-    width: 100%; 
-    border: 1px solid #000;
-    border-radius: 30px;
-    overflow-x: auto;
-    margin-bottom: 20px;
-}
-
-table {
-    min-width: 100%; 
-    border-collapse: collapse;
-    table-layout: fixed; /* Optionnel : force toutes les colonnes à avoir la même largeur */
-}
-
-thead {
-    background-color: #f2f2f2;
-}
-
-th {
-    padding: 20px 15px; /* Plus d'espace en haut/bas des titres */
-    font-size: 1.1rem;  /* Titres un peu plus grands */
-    background-color: #eeeeee;
-    border-bottom: 1px solid #000;
-}
-
-td {
-    padding: 15px;      /* Plus d'espace intérieur */
-    height: 60px;       /* Hauteur augmentée (était à 45px) */
-    font-size: 1rem;    /* Taille de texte confortable */
-    border-bottom: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    vertical-align: middle; /* Centre le texte verticalement */
-    text-align: center;
-}
-
-td:last-child, th:last-child {
-    border-right: none;
-}
-
-/* Actions bas de page */
-.footer-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 20px;
-}
-
-.form-inline {
-    display: flex;
+.btn-filter {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
+
+    padding: .5rem .9rem;
+
+    background: #f5f5fa;
+    color: #1a1a2e;
+
+    border: 1px solid #dcdce8;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        color .2s ease,
+        transform .15s ease;
 }
 
-.action-group {
-    display: flex;
-    gap: 10px; /* espace entre select et button */
-    align-items: center;
+.btn-filter:hover {
+    background: #fff3e6;
+    border-color: #ff9f43;
+    color: #e67e22;
+    transform: translateY(-1px);
 }
+
+#resultat {
+    min-height: 20px;
+
+    margin: 0 0 1rem 0;
+
+    color: #6b6b8a;
+    font-size: .85rem;
+}
+
+.table-container {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #e8e8f0;
+    border-radius: 16px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+}
+
+
+.table-container table {
+    width: 100%;
+    min-width: 850px;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    table-layout: auto;
+}
+
+
+.table-container thead {
+    background: #f5f5fa;
+    border-bottom: 1px solid #e8e8f0;
+}
+
+.table-container thead th {
+    padding: 1rem 1.25rem;
+
+    color: #6b6b8a;
+
+    font-size: .75rem;
+    font-weight: 700;
+
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    white-space: nowrap;
+}
+
+
+.table-container tbody tr {
+    border-bottom: 1px solid #f0f0f8;
+    transition: background-color .15s ease;
+}
+
+.table-container tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table-container tbody tr:hover {
+    background: #fafafe;
+}
+
+.table-container tbody td {
+    padding: 1rem 1.25rem;
+
+    color: #1a1a2e;
+
+    font-size: .9rem;
+    line-height: 1.4;
+
+    vertical-align: middle;
+}
+
+
+/* Modèle */
+.table-container tbody td:nth-child(1) {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Date */
+.table-container tbody td:nth-child(2) {
+    color: #6b6b8a;
+    white-space: nowrap;
+}
+
+/* Client */
+.table-container tbody td:nth-child(3) {
+    font-weight: 500;
+}
+
+/* Statut */
+.table-container tbody td:nth-child(4) {
+    white-space: nowrap;
+}
+
+
+
+.table-container tbody td:nth-child(4) {
+    font-weight: 600;
+}
+
+.statut {
+    display: inline-flex;
+    align-items: center;
+
+    padding: .35rem .75rem;
+
+    border-radius: 20px;
+
+    font-size: .8rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
 
 .select-statut {
-    padding: 8px 12px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 14px;
+    min-width: 125px;
+
+    padding: .55rem .75rem;
+
+    background: #ffffff;
+    color: #1a1a2e;
+
+    border: 1px solid #dcdce8;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: .85rem;
+
+    outline: none;
     cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
 }
 
+.select-statut:hover {
+    border-color: #c8c8d8;
+}
+
+.select-statut:focus {
+    border-color: #ff9f43;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 159, 67, .12);
+}
+
+
 .btn-confirmer {
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 10px;
-    background-color: #e67e22;
-    color: white;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 95px;
+
+    padding: .55rem .9rem;
+
+    background: #e67e22;
+    color: #ffffff;
+
+    border: 1px solid #e67e22;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: .85rem;
+    font-weight: 600;
+
     cursor: pointer;
-    transition: 0.2s;
+    white-space: nowrap;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .15s ease,
+        box-shadow .2s ease;
 }
 
 .btn-confirmer:hover {
-    background-color: #3d8b40;
+    background: #d96f16;
+    border-color: #d96f16;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 4px 12px rgba(230, 126, 34, .25);
+}
+
+
+
+.footer-actions {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   SCROLLBAR DU TABLEAU
+   ───────────────────────────────────────────────────────── */
+
+.table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: #f5f5fa;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background: #dcdce8;
+    border-radius: 10px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #c4c4d4;
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   TABLETTE
+   ───────────────────────────────────────────────────────── */
+
+@media (max-width: 1000px) {
+
+    .content {
+        padding: 1.5rem;
+    }
+
+    .header-section {
+        align-items: flex-start;
+    }
+
+    .page-header-left {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────────────────────── */
+
+@media (max-width: 700px) {
+
+    .content {
+        padding: 1rem;
+    }
+
+    .header-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .page-header-left h1 {
+        font-size: 1.4rem;
+    }
+
+    .page-header-left h1 i {
+        font-size: 1.35rem;
+    }
+
+    .page-header-left p {
+        font-size: .82rem;
+    }
+
+    .filter-group {
+        flex-wrap: wrap;
+    }
+
+    .filter-group > span {
+        width: 100%;
+        margin-bottom: .25rem;
+    }
+
+    .btn-filter {
+        flex: 1;
+    }
+
+    .table-container {
+        border-radius: 12px;
+    }
+
+    .table-container thead th,
+    .table-container tbody td {
+        padding: .8rem;
+    }
+
+    .action-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .select-statut,
+    .btn-confirmer {
+        width: 100%;
+    }
+}
+
+
+/* ─────────────────────────────────────────────────────────
+   PETIT MOBILE
+   ───────────────────────────────────────────────────────── */
+
+@media (max-width: 450px) {
+
+    .content {
+        padding: .75rem;
+    }
+
+    .page-header-left h1 {
+        font-size: 1.25rem;
+    }
+
+    .filter-group {
+        padding: .5rem;
+    }
+
+    .btn-filter {
+        padding: .45rem .7rem;
+        font-size: .8rem;
+    }
 }

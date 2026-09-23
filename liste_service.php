@@ -2,7 +2,6 @@
 
 include 'backend/gestion_service/fonctionService.php';
 
-$service_liste0 = getAllService();
 $service_liste = selectAllService($bdd);
 
 ?>
@@ -61,8 +60,8 @@ $service_liste = selectAllService($bdd);
             <?php foreach($service_liste as $service) { ?> 
 
                 <tr>
-                    <td>
-                        <div class="img-placeholder"><i class="bi bi-wrench-adjustable"></i></div>
+                    <td class = "photo">
+                        <div class="img-placeholder"><img class="service-img" src =  " backend/gestion_service/uploads/<?php echo $service['image_service']; ?>"></div>
                     </td>
                     <td>
                         
