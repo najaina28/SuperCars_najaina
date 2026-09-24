@@ -1,0 +1,321 @@
+#main-content {
+    padding: 2rem;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+/* ── En-tête de page ── */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-header-left h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin: 0 0 .25rem 0;
+}
+
+.page-header-left h1 i {
+    color: #ff9f43;
+}
+
+.page-header-left p {
+    color: #6b6b8a;
+    font-size: .9rem;
+    margin: 0;
+}
+
+.btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: #e67e22;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: .7rem 1.4rem;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: background .2s, transform .15s, box-shadow .2s;
+    white-space: nowrap;
+}
+
+.btn-add:hover {
+    background: #e29d5d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(230,57,70,.3);
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ── Barre de recherche + filtre ── */
+.toolbar {
+    background: #ffffff;
+    border: 1px solid #e8e8f0;
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+}
+
+.search-wrap i {
+    position: absolute;
+    left: .9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #a0a0b8;
+    font-size: 1rem;
+}
+
+.search-wrap input {
+    width: 100%;
+    box-sizing: border-box;
+    background: #f5f5fa;
+    border: 1px solid #dcdce8;
+    border-radius: 9px;
+    padding: .6rem .9rem .6rem 2.4rem;
+    font-size: .9rem;
+    color: #1a1a2e;
+    outline: none;
+    transition: border-color .2s;
+    font-family: inherit;
+}
+
+.search-wrap input:focus {
+    border-color: #ff9f43;
+}
+
+.badge-count {
+    background: #f5f5fa;
+    border: 1px solid #dcdce8;
+    color: #6b6b8a;
+    font-size: .8rem;
+    font-weight: 600;
+    padding: .35rem .9rem;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* ── Table ── */
+.table-card {
+    background: #ffffff;
+    border: 1px solid #e8e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,.06);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #f5f5fa;
+    border-bottom: 1px solid #e8e8f0;
+}
+
+thead th {
+    padding: .9rem 1.25rem;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #6b6b8a;
+    text-align: left;
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f0f0f8;
+    transition: background .15s;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #fafafe;
+}
+
+tbody td {
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+    font-size: .9rem;
+    color: #1a1a2e;
+}
+
+/* ── Cellule image ── */
+.service-img {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #f5f5fa;
+    border: 1px solid #e8e8f0;
+}
+
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: #f5f5fa;
+    border: 1px solid #e8e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c0c0d8;
+    font-size: 1.3rem;
+}
+
+/* ── Nom + titre ── */
+.service-name {
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: .15rem;
+}
+
+.service-titre {
+    font-size: .8rem;
+    color: #6b6b8a;
+}
+
+/* ── Description tronquée ── */
+.desc-cell {
+    max-width: 260px;
+    color: #6b6b8a;
+    font-size: .85rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Prix ── */
+.prix-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    background: rgba(230,57,70,.08);
+    color: #be742e;
+    font-weight: 700;
+    font-size: .9rem;
+    padding: .3rem .75rem;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* ── Actions ── */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.btn-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid #e8e8f0;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .95rem;
+    cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s, transform .15s;
+    text-decoration: none;
+    color: #6b6b8a;
+}
+
+.btn-icon:hover {
+    transform: translateY(-1px);
+}
+
+.btn-icon.edit:hover {
+    background: #e8f4ff;
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.btn-icon.delete:hover {
+    background: #fef2f2;
+    border-color: #e67e22;
+    color: #e67e22;
+}
+
+/* ── Pagination ── */
+.pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-top: 1px solid #f0f0f8;
+    background: #fafafe;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.pagination-info {
+    font-size: .82rem;
+    color: #6b6b8a;
+}
+
+.pagination-btns {
+    display: flex;
+    gap: .35rem;
+}
+
+.pg-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #e8e8f0;
+    background: #fff;
+    color: #1a1a2e;
+    font-size: .85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s, border-color .15s;
+    font-family: inherit;
+}
+
+.pg-btn:hover, .pg-btn.active {
+    background: #e67e22;
+    border-color: #e67e22;
+    color: #fff;
+}
+
+.pg-btn:disabled {
+    opacity: .4;
+    cursor: default;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .desc-col, .titre-col { display: none; }
+    .page-header { flex-direction: column; align-items: flex-start; }
+}

@@ -1,0 +1,126 @@
+/* ============================================================
+   ADMIN SECTION APROPOS — PREVIEW WRAPPER (Identique au site)
+   ============================================================ */
+
+.apropos-preview-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #eee;
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.apropos-preview-wrapper .about-section {
+    padding: 3rem 15px;
+}
+
+.apropos-preview-wrapper .container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.apropos-preview-wrapper .text-center {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.apropos-preview-wrapper .mb-5 {
+    margin-bottom: 3rem;
+}
+
+.apropos-preview-wrapper .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.apropos-preview-wrapper .section-description {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.8;
+}
+
+.apropos-preview-wrapper .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-inline: -12px;
+}
+
+.apropos-preview-wrapper .col-lg-4,
+.apropos-preview-wrapper .col-md-6 {
+    padding: 12px;
+}
+
+.apropos-preview-wrapper .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}
+
+@media (max-width: 991px) {
+    .apropos-preview-wrapper .col-lg-4 {
+        width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    .apropos-preview-wrapper .col-lg-4 {
+        width: 100%;
+    }
+}
+
+.apropos-preview-wrapper .info-card {
+    background: white;
+    border-radius: 10px;
+    padding: 50px 40px;
+    text-align: center;
+    min-height: 280px;
+    height: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.apropos-preview-wrapper .info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.apropos-preview-wrapper .info-icon-wrap {
+    width: 60px;
+    height: 60px;
+    background-color: #E67E22;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.25);
+}
+
+.apropos-preview-wrapper .info-icon-wrap i {
+    font-size: 28px;
+    color: white;
+}
+
+.apropos-preview-wrapper .info-card-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.apropos-preview-wrapper .info-card-text {
+    font-size: 15px;
+    color: #666666;
+    line-height: 1.8;
+    margin: 0;
+}
