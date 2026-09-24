@@ -1,0 +1,361 @@
+:root {
+    --primary-color: #E67E22;
+    --text-dark: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Bootstrap Customization avec hauteur fixe */
+.navbar {
+    padding: 0.75rem 0;
+    height: 80px;
+    /* Hauteur fixe du header */
+    overflow: visible;
+    /* Permet au logo de dépasser */
+
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+.navbar-brand {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand img {
+    height: 120px;
+    /* Changez cette valeur pour ajuster le logo */
+    width: auto;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    flex-shrink: 0;
+}
+
+.logo-img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    gap: 35px;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-nav {
+    height: 100%;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-dark) !important;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Profile Icon */
+.profile-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #0099ff;
+    padding: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+}
+
+.profile-img:hover {
+    transform: scale(1.1);
+}
+
+:root {
+    --primary-color: #E67E22;
+    --text-dark: #333333;
+}
+
+/* ... existing code ... */
+
+/* Profile Icon Wrapper */
+.profile-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid #E67E22;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.profile-icon-wrapper i {
+    font-size: 24px;
+    color: #E67E22;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects */
+#dropdownUser:hover .profile-icon-wrapper {
+    background-color: #E67E22;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.2);
+}
+
+#dropdownUser:hover .profile-icon-wrapper i {
+    color: #ffffff;
+}
+
+/* Dropdown Menu Items */
+.dropdown-item:active,
+.dropdown-item:hover {
+    background-color: rgba(230, 126, 34, 0.1);
+    color: #E67E22;
+}
+
+.dropdown-item i {
+    transition: color 0.3s ease;
+}
+
+.dropdown-item:hover i {
+    color: #E67E22 !important;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .header-container {
+        padding: 0 30px;
+    }
+
+    .nav {
+        gap: 25px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    /* Menu mobile dropdown pour tablettes */
+    .navbar-collapse {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 1.5rem;
+        z-index: 999;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 0 !important;
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 17px;
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .ms-3 {
+        margin-top: 1rem;
+        margin-left: 0 !important;
+        padding-top: 1rem;
+        border-top: 2px solid #f0f0f0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px;
+    }
+
+    .header-container {
+        height: 70px;
+        padding: 0 20px;
+    }
+
+    .logo-img {
+        height: 120px;
+    }
+
+    .navbar-brand img {
+        height: 120px;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 0.75rem 1rem;
+    }
+
+    .profile-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Menu mobile dropdown */
+    .navbar-collapse {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        padding: 1.5rem;
+        z-index: 999;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 0 !important;
+        width: 100%;
+    }
+
+    .nav-link {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 16px;
+    }
+
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    .ms-3 {
+        margin-top: 1rem;
+        margin-left: 0 !important;
+        padding-top: 1rem;
+        border-top: 2px solid #f0f0f0;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        height: 60px;
+    }
+
+    .header-container {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .logo-img {
+        height: 120px;
+    }
+
+    .navbar-brand img {
+        height: 120px;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+        padding: 1rem 1.5rem;
+    }
+
+    .profile-img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .navbar-collapse {
+        top: 60px;
+    }
+}
