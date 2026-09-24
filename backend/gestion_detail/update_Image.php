@@ -12,7 +12,7 @@ $image_name = '';
 
 if (!empty($_FILES['new_image']['name'])) {
 
-    $upload_dir = __DIR__ . "/uploads/";
+    $upload_dir = __DIR__ . "/../../../Site web/assets/images/";
 
     // créer dossier si inexistant
     if (!is_dir($upload_dir)) {

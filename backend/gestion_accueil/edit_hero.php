@@ -14,8 +14,12 @@ if (isset($_POST['id_contenu'])) {
 
     // Si une nouvelle image est envoyée
     if (!empty($_FILES['image']['name'])) {
+        $target_dir = __DIR__ . "/../../../Site web/assets/images/";
+        if (!is_dir($target_dir)) {
+            mkdir($target_dir, 0777, true);
+        }
         $image = time() . "_" . $_FILES['image']['name'];
-        move_uploaded_file($_FILES['image']['tmp_name'], "../../../assets/images/" . $image);
+        move_uploaded_file($_FILES['image']['tmp_name'], $target_dir . $image);
     }
 
     // Mise à jour en base de données

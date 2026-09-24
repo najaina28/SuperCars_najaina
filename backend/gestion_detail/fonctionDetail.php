@@ -35,11 +35,8 @@ function selectAllVoiture($conn) {
     v.couleur,
     v.provenance,
     v.details,
-    i.url_image
-FROM voiture v
-LEFT JOIN image i 
-    ON v.idvoiture = i.idvoiture 
-    AND i.priorite = 1 GROUP BY v.idvoiture";
+    (SELECT url_image FROM image i WHERE i.idvoiture = v.idvoiture ORDER BY i.priorite DESC, i.id_image ASC LIMIT 1) AS url_image
+FROM voiture v";
 
     $requete_query = mysqli_query($conn,$sql);
 
@@ -219,54 +216,31 @@ function UpdateImage($conn, $id, $url, $idvoiture, $priority)
                 WHERE id_image = ?";
 
     $stmt_old = mysqli_prepare($conn, $sql_old);
-
     mysqli_stmt_bind_param($stmt_old, "i", $id);
-
     mysqli_stmt_execute($stmt_old);
-
     $result_old = mysqli_stmt_get_result($stmt_old);
-
     $old_image = mysqli_fetch_assoc($result_old);
 
-    ///2. SUPPRIMER IMAGE PHYSIQUE
-    if ($old_image) {
-
-        $old_path = __DIR__ . "/uploads/" . $old_image['url_image'];
-
-        if (file_exists($old_path)) {
+    ///2. SUPPRIMER IMAGE PHYSIQUE S'IL Y A UN NOUVEAU FICHIER
+    if ($old_image && !empty($url)) {
+        $old_path = __DIR__ . "/../../../Site web/assets/images/" . $old_image['url_image'];
+        if (file_exists($old_path) && !is_dir($old_path)) {
             unlink($old_path);
         }
     }
 
-    /// 3. SUPPRIMER DANS BASE
-
-    $sql_delete = "DELETE FROM image WHERE id_image = ?";
-
-    $stmt_delete = mysqli_prepare($conn, $sql_delete);
-
-    mysqli_stmt_bind_param($stmt_delete, "i", $id);
-
-    mysqli_stmt_execute($stmt_delete);
-
-    //AJOUTER NOUVELLE IMAGE
-    $sql_insert = "INSERT INTO image (
-                        url_image,
-                        idvoiture,
-                        priorite
-                    )
-                    VALUES (?, ?, ?)";
-
-    $stmt_insert = mysqli_prepare($conn, $sql_insert);
-
-    mysqli_stmt_bind_param(
-        $stmt_insert,
-        "sii",
-        $url,
-        $idvoiture,
-        $priority
-    );
-
-    return mysqli_stmt_execute($stmt_insert);
+    /// 3. METTRE A JOUR LA BASE
+    if (!empty($url)) {
+        $sql_update = "UPDATE image SET url_image = ?, priorite = ? WHERE id_image = ?";
+        $stmt_update = mysqli_prepare($conn, $sql_update);
+        mysqli_stmt_bind_param($stmt_update, "sii", $url, $priority, $id);
+        return mysqli_stmt_execute($stmt_update);
+    } else {
+        $sql_update = "UPDATE image SET priorite = ? WHERE id_image = ?";
+        $stmt_update = mysqli_prepare($conn, $sql_update);
+        mysqli_stmt_bind_param($stmt_update, "ii", $priority, $id);
+        return mysqli_stmt_execute($stmt_update);
+    }
 }
 
 function insertImage($conn, $url_image, $idvoiture, $priorite)
@@ -291,22 +265,44 @@ function insertImage($conn, $url_image, $idvoiture, $priorite)
     return mysqli_stmt_execute($stmt);
 }
 
+function addImageVoiture($conn, $idvoiture, $url_image, $priorite = 0)
+{
+    return insertImage($conn, $url_image, $idvoiture, $priorite);
+}
+
+function deleteImage($conn, $id_image)
+{
+    $sql_old = "SELECT url_image FROM image WHERE id_image = ?";
+    $stmt_old = mysqli_prepare($conn, $sql_old);
+    mysqli_stmt_bind_param($stmt_old, "i", $id_image);
+    mysqli_stmt_execute($stmt_old);
+    $result_old = mysqli_stmt_get_result($stmt_old);
+    $old_image = mysqli_fetch_assoc($result_old);
+
+    if ($old_image) {
+        $old_path = __DIR__ . "/../../../Site web/assets/images/" . $old_image['url_image'];
+        if (file_exists($old_path) && !is_dir($old_path)) {
+            unlink($old_path);
+        }
+    }
+
+    $sql_delete = "DELETE FROM image WHERE id_image = ?";
+    $stmt_delete = mysqli_prepare($conn, $sql_delete);
+    mysqli_stmt_bind_param($stmt_delete, "i", $id_image);
+    return mysqli_stmt_execute($stmt_delete);
+}
+
 function deleteVoiture($conn, $id)
 {
-    
     $sql = "SELECT url_image FROM image WHERE idvoiture = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
-
     mysqli_stmt_bind_param($stmt, "i", $id);
-
     mysqli_stmt_execute($stmt);
-
     $result = mysqli_stmt_get_result($stmt);
 
     while ($img = mysqli_fetch_assoc($result)) {
-
-        $path = __DIR__ . "/uploads/" . $img['url_image'];
+        $path = __DIR__ . "/../../../Site web/assets/images/" . $img['url_image'];
 
         if (file_exists($path) && !is_dir($path)) {
             unlink($path);
@@ -314,9 +310,7 @@ function deleteVoiture($conn, $id)
     }
 
     $sql_delete = "DELETE FROM voiture WHERE idvoiture = ?";
-
     $stmt_delete = mysqli_prepare($conn, $sql_delete);
-
     mysqli_stmt_bind_param($stmt_delete, "i", $id);
 
     return mysqli_stmt_execute($stmt_delete);

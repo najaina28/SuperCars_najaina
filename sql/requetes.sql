@@ -236,6 +236,51 @@ VALUES (
     '$2y$10$507uRrxzJLNDCZK5PLq7l.MZE4YeM2AtrBKGFrSRw6DEdnrbDUaS6'
 );
 
+-- Insertion du contenu pour la Section Contact
+INSERT INTO contenu (lignecontenu, titre, texte, page)
+VALUES (
+        1,
+        '0322 565 478',
+        'Lun–Ven 08h–18h',
+        'contact'
+    ),
+    (
+        2,
+        'supercar@gmail.com',
+        'Réponse sous 24h',
+        'contact'
+    ),
+    (
+        3,
+        'MCCI Business School, Ebene, Maurice',
+        'Showroom principal',
+        'contact'
+    ),
+    (
+        4,
+        'Lundi – Vendredi',
+        '08h00 – 18h00',
+        'contact'
+    ),
+    (
+        5,
+        'Samedi',
+        '09h00 – 17h00',
+        'contact'
+    ),
+    (
+        6,
+        'Dimanche',
+        '10h00 – 15h00',
+        'contact'
+    ),
+    (
+        7,
+        'MCCI Business School — Showroom principal SUPERCAR',
+        'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1198.5492211244302!2d57.48494871408381!3d-20.24355594411807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5b16955dcd29%3A0xe6719b48c3b7a89a!2sMCCI%20Business%20School!5e0!3m2!1sfr!2smu!4v1700000000000!5m2!1sfr!2smu',
+        'contact'
+    );
+
 
 INSERT INTO login (id_client, mot_de_passe, role, date_inscription)
 VALUES (1, 'motdepasse123', 'admin', CURDATE());

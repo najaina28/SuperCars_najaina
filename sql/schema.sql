@@ -1,5 +1,5 @@
 -- Suppression et création de la base de données
-DROP DATABASE Supercar;
+DROP DATABASE IF EXISTS SuperCar;
 CREATE DATABASE SuperCar;
 USE SuperCar;
 
@@ -53,7 +53,7 @@ CREATE TABLE login(
    id_client INT NOT NULL,
    mot_de_passe VARCHAR(255) NOT NULL,
    role VARCHAR(50) DEFAULT 'user',
-   date_inscription DATE ,
+   date_inscription DATE,
    FOREIGN KEY(id_client) REFERENCES client(id_client) ON DELETE CASCADE
 );
 
@@ -83,9 +83,9 @@ CREATE TABLE demande_essai(
    statut ENUM('en_cours', 'valide', 'annule') NOT NULL,
    idvoiture INT NOT NULL,
    id_client INT NOT NULL,
-   date_demande DATE NOT NULL CURRENT_TIMESTAMP,
-   FOREIGN KEY(idvoiture) REFERENCES voiture(idvoiture),
-   FOREIGN KEY(id_client) REFERENCES client(id_client)
+   date_demande DATETIME DEFAULT CURRENT_TIMESTAMP,
+   FOREIGN KEY(idvoiture) REFERENCES voiture(idvoiture) ON DELETE CASCADE,
+   FOREIGN KEY(id_client) REFERENCES client(id_client) ON DELETE CASCADE
 );
 
 -- Table du contenu dynamique du site (pages, textes)
@@ -94,6 +94,7 @@ CREATE TABLE contenu(
    lignecontenu INT,
    titre VARCHAR(200) NOT NULL,
    texte TEXT,
+   image VARCHAR(255) DEFAULT NULL,
    page VARCHAR(100)
 );
 

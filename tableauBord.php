@@ -30,6 +30,7 @@ $countNouveauCompte = CountNouveauClientdemoi($bdd,date("Y-m-d"));
 
 $tauxdeconvertion = PourcentageConvertionClientdemoi($bdd,date("Y-m-d"));
 
+
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +96,7 @@ $tauxdeconvertion = PourcentageConvertionClientdemoi($bdd,date("Y-m-d"));
                     </div>
                 </div>
                 <div class="mt-3">
-                    <p class="text-muted mb-0 small">Taux de conversion de ce mois</p>
+                    <p class="text-muted mb-0 small">Taux de conversion de cette année</p>
                     <h3 class="fw-bold"><?php echo $tauxdeconvertion; ?>%</h3>
                 </div>
             </div>

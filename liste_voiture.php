@@ -85,7 +85,7 @@ $Voiture = selectAllVoiture($bdd);
                         <?php if(!empty($voiture['url_image'])) { ?>
 
                             <img 
-                                src="backend/gestion_detail/uploads/<?= $voiture['url_image'] ?>" 
+                                src="../Site web/assets/images/<?= $voiture['url_image'] ?>" 
                                 alt="voiture"
                                 style="
                                     width:70px;

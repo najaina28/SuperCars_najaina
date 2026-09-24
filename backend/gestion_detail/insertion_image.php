@@ -9,7 +9,7 @@ $priorite  = $_POST['priorite'];
 
 if (!empty($_FILES['new_image']['name'])) {
 
-    $upload_dir = __DIR__ . "/uploads/";
+    $upload_dir = __DIR__ . "/../../../Site web/assets/images/";
 
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0777, true);

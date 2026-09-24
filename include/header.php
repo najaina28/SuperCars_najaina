@@ -85,7 +85,6 @@
             </div>
         </details>
 
-
         <?php
             if (file_exists("liste_voiture.php")) {
                 $voiture = "liste_voiture.php";
@@ -100,7 +99,6 @@
 
         <div class="nav-section">Interactions</div>
 
-
         <?php
             if (file_exists("demande_essaie.php")) {
                 $essai = "demande_essaie.php";
@@ -113,14 +111,40 @@
             Demandes d'essai
         </a>
 
-        <a href="liste_service.php" class="nav-item">
+        <?php
+            if (file_exists("liste_service.php")) {
+                $service_link = "liste_service.php";
+            } else {
+                $service_link = "../../liste_service.php";
+            }
+        ?>
+        <a href="<?php echo $service_link; ?>" class="nav-item">
             <i class="bi bi-wrench-adjustable"></i>
             Services
         </a>
 
-        <a href="contact.php" class="nav-item">
+        <?php
+            if (file_exists("contact.php")) {
+                $messages_link = "contact.php";
+            } else {
+                $messages_link = "../../contact.php";
+            }
+        ?>
+        <a href="<?php echo $messages_link; ?>" class="nav-item">
             <i class="bi bi-chat-left-text"></i>
             Messages
+        </a>
+
+        <?php
+            if (file_exists("section_contact.php")) {
+                $contact_sec = "section_contact.php";
+            } else {
+                $contact_sec = "../../section_contact.php";
+            }
+        ?>
+        <a href="<?php echo $contact_sec; ?>" class="nav-item">
+            <i class="bi bi-geo-alt"></i>
+            Infos Contact
         </a>
 
         <div class="nav-section">Compte</div>

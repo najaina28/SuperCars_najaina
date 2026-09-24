@@ -60,7 +60,7 @@ if (isset($_POST['update'])) {
     */
     if (!empty($_FILES['image']['name'][0])) {
 
-        $upload_dir = __DIR__ . "/uploads/";
+        $upload_dir = __DIR__ . "/../../../Site web/assets/images/";
 
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
@@ -296,7 +296,7 @@ if (isset($_POST['update'])) {
                                 <?php foreach ($v['images'] as $img) : ?>
 
                                     <img
-                                        src="uploads/<?= $img['url_image'] ?>"
+                                        src="../../../Site web/assets/images/<?= $img['url_image'] ?>"
                                         style="
                                             width:120px;
                                             height:120px;
@@ -488,7 +488,7 @@ function openEditImage(id, priorite, image) {
 
     document.getElementById('id_image').value = id;
     document.getElementById('priorite').value = priorite;
-    document.getElementById('previewImage').src = 'uploads/' + image;
+    document.getElementById('previewImage').src = '../../../Site web/assets/images/' + image;
 }
 
 function closeModal() {

@@ -27,13 +27,13 @@ if (isset($_POST['update'])) {
     //Seulement si une image est envoyée
     if (!empty($_FILES['image_service']) && $_FILES['image_service']['error'] === 0) {
 
-        $upload_dir = __DIR__ . "/uploads/";
+        $upload_dir = __DIR__ . "/../../../Site web/assets/images/";
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
 
         $ext = pathinfo($_FILES['image_service']['name'], PATHINFO_EXTENSION);
-        $image_name = uniqid() . "." . $ext;
+        $image_name = time() . "_" . uniqid() . "." . $ext;
 
         move_uploaded_file(
             $_FILES['image_service']['tmp_name'],
@@ -124,7 +124,7 @@ if (isset($_POST['update'])) {
                     <label>Image actuelle</label><br>
 
                     <?php if (!empty($service['image_service'])) { ?>
-                        <img src="uploads/<?php echo $service['image_service']; ?>" 
+                        <img src="../../../Site web/assets/images/<?php echo $service['image_service']; ?>" 
                             style="width:120px; height:120px; object-fit:cover; border-radius:10px; border:1px solid #ccc;">
                     <?php } else { ?>
                         <div style="width:120px; height:120px; display:flex; align-items:center; justify-content:center; border:1px dashed #ccc; border-radius:10px;">

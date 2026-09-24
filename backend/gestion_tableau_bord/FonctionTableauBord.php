@@ -296,7 +296,8 @@ function CounttoutClient($conn) {
 function CountlesInscrisquifaitdemande($conn,$daty_de_consultation) {
     $nbrClientfaitdemande = 0;
 
-    $sql = "SELECT COUNT(*) as totalinscriddemande FROM demande_essai WHERE YEAR(date_demande) = YEAR(?) GROUP BY id_client";
+    $sql = "SELECT COUNT(DISTINCT id_client) AS totalinscriddemande FROM demande_essai WHERE YEAR(date_demande) = YEAR(?)";
+    
 
     $stmt = mysqli_prepare($conn,$sql);
 
