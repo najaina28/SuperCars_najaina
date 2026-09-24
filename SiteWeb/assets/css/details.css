@@ -1,0 +1,611 @@
+/* ============================================
+   ANIMATIONS D'ENTRÉE
+   ============================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+
+
+/* Ajustement personnalisé pour les colonnes */
+@media (min-width: 1200px) {
+    .col-custom {
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+
+    .col-custom-similar {
+        flex: 0 0 90%;
+        max-width: 90%;
+    }
+}
+
+
+.text-orange {
+    color: #E67E22 !important;
+}
+
+.text-orange:hover {
+    color: #d35400 !important;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: #ffffff;
+    color: #5a5a5a;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.btn-back:hover {
+    background-color: #E67E22;
+    color: #ffffff;
+    border-color: #E67E22;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 10px rgba(230, 126, 34, 0.2);
+}
+
+.btn-back i {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.breadcrumb-area {
+    margin-bottom: 25px;
+}
+
+/* Carousel principal */
+#carImageCarousel {
+    position: relative;
+}
+
+#carImageCarousel .carousel-inner {
+    background-color: #f8f9fa;
+    border-radius: 24px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+#carImageCarousel .carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Flèches de navigation (ORANGE comme la maquette) */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(230, 126, 34, 0.9);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev {
+    left: 20px;
+}
+
+.carousel-control-next {
+    right: 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(230, 126, 34, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    background-size: 100%;
+}
+
+/* Miniatures (Thumbnails) */
+/* Miniatures (Thumbnails) via Bootstrap Indicators */
+#carImageCarousel .carousel-indicators {
+    position: static;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* ou center selon besoin */
+    width: 100%;
+}
+
+/* Surcharger les styles par défaut des indicateurs Bootstrap */
+#carImageCarousel .carousel-indicators [data-bs-target] {
+    text-indent: 0;
+    width: 100%;
+    /* S'adapte à la largeur de la colonne parente (col-2) */
+    height: auto;
+    opacity: 1;
+    border: 3px solid transparent;
+    /* Bordure transparente de base */
+    margin: 0;
+    background-color: transparent;
+    padding: 0;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+}
+
+/* Le wrapper de la miniature */
+.thumbnail-wrapper {
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: none;
+    /* Pas d'ombre par défaut */
+    width: 100%;
+    /* Important pour remplir le bouton indicator */
+}
+
+.thumbnail-wrapper img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+    border-radius: 9px;
+    /* rayon parent (12px) - bordure (3px) = 9px */
+}
+
+/* Miniature ACTIVE (bordure orange) - La classe .active est ajoutée par Bootstrap sur l'élément [data-bs-target] */
+/* Surcharge spécifique pour garantir l'affichage */
+#carImageCarousel .carousel-indicators [data-bs-target].active,
+#carImageCarousel .carousel-indicators [data-bs-target]:active,
+#carImageCarousel .carousel-indicators [data-bs-target]:focus {
+    border-color: #E67E22;
+    box-shadow: 0 2px 8px rgba(230, 126, 34, 0.3);
+    opacity: 1;
+}
+
+/* Hover sur miniatures */
+#carImageCarousel .carousel-indicators [data-bs-target]:hover {
+    border-color: rgba(230, 126, 34, 0.5);
+}
+
+#carImageCarousel .carousel-indicators [data-bs-target]:hover img {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   SECTION DESCRIPTION (sous la galerie à gauche)
+   ============================================ */
+
+.description-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    padding: 25px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.description-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.description-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #5a5a5a;
+    margin-bottom: 12px;
+}
+
+.description-text:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   COLONNE DROITE - DÉTAILS DU VÉHICULE
+   ============================================ */
+
+/* UNE SEULE carte blanche pour tout */
+.vehicle-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Titre et Prix (dans la carte) */
+.car-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+.car-price {
+    font-size: 32px;
+    font-weight: 700;
+    color: #E67E22;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Liste des caractéristiques avec icônes */
+.char-list {
+    margin-bottom: 25px;
+}
+
+.char-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.char-item:last-child {
+    margin-bottom: 0;
+}
+
+.char-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.char-icon i {
+    font-size: 20px;
+    color: #5a5a5a;
+}
+
+.char-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.char-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+}
+
+.char-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333333;
+}
+
+/* Liste des spécifications (même carte) */
+.specs-list {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.spec-label {
+    font-size: 14px;
+    color: #7a7a7a;
+}
+
+.spec-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+}
+
+/* Boutons d'action (dans la même carte) */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.btn-orange-full {
+    background-color: #E67E22;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-orange-full:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+}
+
+.btn-orange-outline {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: transparent;
+    color: #E67E22;
+    border: 2px solid #E67E22;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: auto;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.btn-orange-outline:hover {
+    background-color: #E67E22;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 126, 34, 0.2);
+}
+
+/* ============================================
+   SECTION VÉHICULES SIMILAIRES
+   ============================================ */
+
+.similar-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.similar-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.similar-card:hover {
+    transform: translateY(-5px);
+    border-color: #E67E22;
+    box-shadow: 0 4px 20px rgba(230, 126, 34, 0.15);
+}
+
+.similar-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.similar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.similar-card:hover .similar-image img {
+    transform: scale(1.05);
+}
+
+.similar-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.similar-car-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.similar-specs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.similar-spec {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: #5a5a5a;
+}
+
+.similar-spec i {
+    font-size: 16px;
+    color: #7a7a7a;
+}
+
+.similar-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.similar-price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #E67E22;
+}
+
+.btn-see-details {
+    background-color: #E67E22;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-see-details:hover {
+    background-color: #d35400;
+    color: white;
+    transform: translateX(3px);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 992px) {
+    #carImageCarousel .carousel-item img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    #carImageCarousel .carousel-item img {
+        height: 350px;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-control-prev {
+        left: 10px;
+    }
+
+    .carousel-control-next {
+        right: 10px;
+    }
+
+    .thumbnail-wrapper img {
+        height: 70px;
+    }
+
+    .description-card {
+        padding: 20px;
+    }
+
+    .description-title {
+        font-size: 17px;
+    }
+
+    .description-text {
+        font-size: 13px;
+    }
+
+    /* Colonne droite responsive */
+    .vehicle-card {
+        padding: 20px;
+    }
+
+    .car-title {
+        font-size: 24px;
+    }
+
+    .car-price {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .card-title {
+        font-size: 17px;
+    }
+
+    /* Véhicules similaires responsive */
+    .similar-title {
+        font-size: 22px;
+    }
+
+    .similar-image {
+        height: 180px;
+    }
+
+    .similar-car-name {
+        font-size: 18px;
+    }
+
+    .similar-price {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    #carImageCarousel .carousel-item img {
+        height: 250px;
+    }
+
+    .thumbnail-wrapper img {
+        height: 60px;
+    }
+
+    .description-card {
+        padding: 18px;
+    }
+
+    .description-title {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .description-text {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}
