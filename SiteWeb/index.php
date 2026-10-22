@@ -35,7 +35,7 @@ $processus_contents = get_all_contenu_by_page($bdd, 'processus');
     <?php include('include/header.php'); ?>
 
     <!-- Hero Section -->
-    <section class="hero-section" style="background-image: url('assets/images/<?= ($hero && !empty($hero['image'] ?? '')) ? $hero['image'] : 'background/porsche.jpg' ?>')">
+    <section class="hero-section" style="background-image: url('../images/background/porsche.jpg')">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title"><?= $hero ? $hero['titre'] : "Votre partenaire de confiance pour les voitures d'occasionss<br>depuis 2009" ?></h1>

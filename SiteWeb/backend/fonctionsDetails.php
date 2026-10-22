@@ -29,7 +29,7 @@ function getImagesArray($id)
     $images = [];
 
     while ($img = mysqli_fetch_assoc($result)) {
-        $images[] = 'assets/images/' . $img['url_image'];
+        $images[] = '../images/voiture/' . $img['url_image'];
     }
 
     return $images;
@@ -42,7 +42,7 @@ function getSimilairesData($id_marque, $id_actuelle)
 
     global $bdd;
 
-    $sql = "SELECT v.*, m.nom_marque, (SELECT CONCAT('assets/images/', url_image) FROM image WHERE idvoiture = v.idvoiture LIMIT 1) as main_image
+    $sql = "SELECT v.*, m.nom_marque, (SELECT CONCAT('../images/voiture/', url_image) FROM image WHERE idvoiture = v.idvoiture LIMIT 1) as main_image
                 FROM voiture v 
                 JOIN marques m ON v.id_marque = m.id_marque 
                 WHERE v.id_marque = $id_marque AND v.idvoiture != $id_actuelle 

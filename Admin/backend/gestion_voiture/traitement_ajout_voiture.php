@@ -38,7 +38,7 @@ if (isset($_POST['ajouter'])) {
         if ($id_voiture) {
             // AJOUT DES IMAGES
             if (!empty($_FILES['images']['name'][0])) {
-                $upload_dir = __DIR__ . "/../../../SiteWeb/assets/images/";
+                $upload_dir = __DIR__ . "/../../../images/voiture/";
                 
                 foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
                     if ($_FILES['images']['error'][$key] === 0) {

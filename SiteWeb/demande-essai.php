@@ -162,7 +162,7 @@ $id_voiture_select = $_GET['id'] ?? 0;
                                 <div class="row g-3 mb-3">
                                 <div class="col-md-6">
                                     <label class="form-label">Date préférée <span class="required">*</span></label>
-                                    <input type="date" name="date_essai" class="form-control" 
+                                    <input type="datetime-local" name="date_essai" class="form-control" 
                                            min="<?= date('Y-m-d', strtotime('+1 day')) ?>" required>
                                 </div>
                                 <div class="col-md-6">
@@ -177,7 +177,7 @@ $id_voiture_select = $_GET['id'] ?? 0;
                                         
                                         <?php while ($voiture = mysqli_fetch_assoc($result_voitures)) : ?>
                                             <option value="<?= htmlspecialchars($voiture['idvoiture']) ?>" 
-    <?= ((int)$id_voiture_select === (int)$voiture['idvoiture']) ? 'selected' : '' ?>>
+                                            <?= ((int)$id_voiture_select === (int)$voiture['idvoiture']) ? 'selected' : '' ?>>
 
                                                
                                                 <?= htmlspecialchars($voiture['modele']) ?>

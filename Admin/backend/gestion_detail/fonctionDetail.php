@@ -223,7 +223,7 @@ function UpdateImage($conn, $id, $url, $idvoiture, $priority)
 
     ///2. SUPPRIMER IMAGE PHYSIQUE S'IL Y A UN NOUVEAU FICHIER
     if ($old_image && !empty($url)) {
-        $old_path = __DIR__ . "/../../../SiteWeb/assets/images/" . $old_image['url_image'];
+        $old_path = __DIR__ . "/../../../images/voiture/" . $old_image['url_image'];
         if (file_exists($old_path) && !is_dir($old_path)) {
             unlink($old_path);
         }
@@ -280,7 +280,7 @@ function deleteImage($conn, $id_image)
     $old_image = mysqli_fetch_assoc($result_old);
 
     if ($old_image) {
-        $old_path = __DIR__ . "/../../../SiteWeb/assets/images/" . $old_image['url_image'];
+        $old_path = __DIR__ . "/../../../images/voiture/" . $old_image['url_image'];
         if (file_exists($old_path) && !is_dir($old_path)) {
             unlink($old_path);
         }
@@ -302,7 +302,7 @@ function deleteVoiture($conn, $id)
     $result = mysqli_stmt_get_result($stmt);
 
     while ($img = mysqli_fetch_assoc($result)) {
-        $path = __DIR__ . "/../../../SiteWeb/assets/images/" . $img['url_image'];
+        $path = __DIR__ . "/../../../images/voiture/" . $img['url_image'];
 
         if (file_exists($path) && !is_dir($path)) {
             unlink($path);

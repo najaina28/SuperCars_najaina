@@ -79,7 +79,7 @@ function deleteService($id) {
 
     if($service) {
         if(!empty($service['image_service'])){
-            $imagePath = __DIR__ . "/../../../SiteWeb/assets/images/" . $service['image_service'];
+            $imagePath = __DIR__ . "/../../../images/service/" . $service['image_service'];
             if(file_exists($imagePath)) {
                 unlink($imagePath);
             }

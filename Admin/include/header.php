@@ -13,22 +13,20 @@
 <aside id="sidebar">
     <div class="brand">
         <?php
-            if (file_exists("assets/images/logo.png")) {
-                $logo = "assets/images/logo.png";
-            } else {
-                $logo = "../../assets/images/logo.png";
-            }
+            
+                $logo = "../images/logo.png";
+
         ?>
 
 <img src="<?php echo $logo; ?>" alt="Supercar" class="brand-logo">    
 
         <div class="brand-sub">Administration</div>
-        <!--<?php/// if (isset($_SESSION['prenom'])): ?>
+        <?php if (isset($_SESSION['prenom'])): ?>
         <div class="brand-admin-name">
             <i class="bi bi-person-fill"></i>
-            <?php// htmlspecialchars($_SESSION['prenom'] . ' ' . ($_SESSION['nom'] ?? '')) ?>
-        </div> -->
-        <?php// endif; ?>
+            <?php htmlspecialchars($_SESSION['prenom'] . ' ' . ($_SESSION['nom'] ?? '')) ?>
+        </div> 
+        <?php endif ?>
     </div>
 
     <nav>

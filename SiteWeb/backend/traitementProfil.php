@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'fonctionsProfil.php';
+include 'fonctionProfil.php';
+include 'connexion.php';
 
 // Vérifier si le client est connecté
 if (!isset($_SESSION['id_client']) || empty($_SESSION['id_client'])) {
@@ -18,7 +19,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'modifier_infos') {
     $telephone = $_POST['telephone'];
     $adresse = $_POST['adresse'];
 
-    if (modifierClient($id_client, $nom, $prenom, $mail, $telephone, $adresse)) {
+    if (modifierClient($bdd, $id_client, $nom, $prenom, $mail, $telephone, $adresse)) {
         // Mettre à jour la session avec les nouvelles infos
         $_SESSION['nom']       = $nom;
         $_SESSION['prenom']    = $prenom;

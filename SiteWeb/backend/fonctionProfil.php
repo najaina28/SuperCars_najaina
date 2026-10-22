@@ -39,5 +39,65 @@ function get_photo_id($conn, $id_voiture) {
     return $tab_photo;
 }
 
+function formatStatut($statut)
+{
+
+    switch ($statut) {
+        case 'en_cours':
+            return '<span class="badge bg-primary text-white rounded-pill px-3 py-2"><i class="bi bi-hourglass-split me-1"></i> En cours de traitement</span>';
+        case 'valide':
+            return '<span class="badge bg-success text-white rounded-pill px-3 py-2"><i class="bi bi-check-circle me-1"></i> Validée</span>';
+        case 'annule':
+            return '<span class="badge bg-danger text-white rounded-pill px-3 py-2"><i class="bi bi-x-circle me-1"></i> Annulée</span>';
+        default:
+            return '<span class="badge bg-secondary text-white rounded-pill px-3 py-2">Inconnu</span>';
+    }
+
+}
+
+
+function modifierClient($conn ,$id, $nom, $prenom, $mail, $telephone, $adresse)
+{
+
+    global $bdd;
+
+    $sql = "UPDATE client SET 
+                nom = '$nom', 
+                prenom = '$prenom', 
+                mail = '$mail', 
+                telephone = '$telephone', 
+                adresse = '$adresse' 
+            WHERE id_client = $id";
+
+    return mysqli_query($bdd, $sql);
+
+}
+
+function formatDateFr($date)
+{
+
+    $mois = [
+        1 => 'janvier',
+        2 => 'février',
+        3 => 'mars',
+        4 => 'avril',
+        5 => 'mai',
+        6 => 'juin',
+        7 => 'juillet',
+        8 => 'août',
+        9 => 'septembre',
+        10 => 'octobre',
+        11 => 'novembre',
+        12 => 'décembre'
+    ];
+
+    $timestamp = strtotime($date);
+    $jour = date('j', $timestamp);
+    $numMois = (int) date('n', $timestamp);
+    $annee = date('Y', $timestamp);
+
+    return $jour . ' ' . $mois[$numMois] . ' ' . $annee;
+
+}
 
 ?>

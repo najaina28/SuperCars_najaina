@@ -61,7 +61,7 @@ $service_liste = selectAllService($bdd);
 
                 <tr>
                     <td class = "photo">
-                        <div class="img-placeholder"><img class="service-img" src="../SiteWeb/assets/images/<?php echo $service['image_service']; ?>"></div>
+                        <div class="img-placeholder"><img class="service-img" src="../images/service/<?php echo $service['image_service']; ?>"></div>
                     </td>
                     <td>
                         

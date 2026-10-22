@@ -4,7 +4,7 @@
 
         $service_all = [];
 
-        $requete_all_service = "SELECT nom_service,titre_service,description_service,image_service FROM Service";
+        $requete_all_service = "SELECT nom_service,titre_service,description_service,image_service FROM service";
 
         $execution = mysqli_query($conn,$requete_all_service);
 

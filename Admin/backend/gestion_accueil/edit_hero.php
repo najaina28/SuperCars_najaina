@@ -14,7 +14,7 @@ if (isset($_POST['id_contenu'])) {
 
     // Si une nouvelle image est envoyée
     if (!empty($_FILES['image']['name'])) {
-        $target_dir = __DIR__ . "/../../../SiteWeb/assets/images/";
+        $target_dir = __DIR__ . "/../../../images/background/";
         if (!is_dir($target_dir)) {
             mkdir($target_dir, 0777, true);
         }

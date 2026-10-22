@@ -120,15 +120,13 @@
                                         <div class="rounded-circle bg-orange text-white d-flex align-items-center justify-content-center fw-bold" style="width: 40px; height: 40px;">JD</div>
                                         <div class="post-info">
                                             <h3><?php echo $info_client['prenom']; ?> <?php echo $info_client['nom']; ?></h3>
-                                            <span>15 février 2024 • <i class="bi bi-calendar-event"></i> Demande d'essai</span>
+                                            <span> <i class="bi bi-calendar-event"></i> <?php echo formatDateFr($demande['daty']); ?></span>
                                         </div>
                                     </div>
                                     <div class="post-content pt-0 pb-3">
                                         <p class="mb-2">Demande d'essai pour la <strong><?php echo $demande['modele']; ?></strong>.</p>
                                         <div class="status-badge mb-3">
-                                            <span class="badge bg-primary text-white rounded-pill px-3 py-2">
-                                                <i class="bi bi-hourglass-split me-1"></i> <?php echo $demande['stat']; ?>
-                                            </span>
+                                            <?php echo formatStatut($demande['stat']); ?> 
                                         </div>
                                     </div>
                                    
@@ -147,13 +145,13 @@
                                             }
                                         ?>
                                         <div style="flex: 1 1 100%;">
-                                            <img src="assets/images/<?php echo $image_priorite['url_image']; ?>" class="img-fluid rounded w-100" style="height: 400px; object-fit: cover;">
+                                            <img src="../images/voiture/<?php echo $image_priorite['url_image']; ?>" class="img-fluid rounded w-100" style="height: 400px; object-fit: cover;">
                                         </div>
  
                                             <?php $i = 0;
                                             foreach($image_no_prio as $im) {  ?>
                                         <div style="flex: 1 1 32%;">
-                                            <img src="assets/images/<?php echo $im['url_image']; ?>" class="img-fluid rounded w-100" style="height: 150px; object-fit: cover;">
+                                            <img src="../images/voiture/<?php echo $im['url_image']; ?>" class="img-fluid rounded w-100" style="height: 150px; object-fit: cover;">
                                         </div>
  
                                             <?php

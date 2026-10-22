@@ -89,31 +89,29 @@ VALUES (
         'Rouge',
         'Allemagne',
         'Découvrez cette superbe Porsche Macan rouge, une parfaite alliance entre élégance, performance et confort. Son design sportif et raffiné attire immédiatement le regard, avec une carrosserie rouge éclatante qui souligne son caractère dynamique et moderne. À l’intérieur, vous profitez d’un habitacle haut de gamme, équipé de matériaux de qualité, de sièges confortables et de technologies avancées pour une expérience de conduite exceptionnelle.
-
 Sous le capot, ce SUV offre des performances puissantes et une tenue de route remarquable, fidèle à l’ADN sportif de Porsche. Idéale pour la ville comme pour les longs trajets, cette Porsche Macan garantit sécurité, plaisir et prestige à chaque kilomètre.
-
 Une voiture parfaite pour ceux qui recherchent à la fois luxe, puissance et style.'
     );
 -- Insertion des images pour la Porsche (idvoiture = 4)
 INSERT INTO image (url_image, idvoiture, priorite)
 VALUES (
         'porsche/gt3rs/porsche-gt3-rs-rouge.jpg',
-        4,
+        1,
         1
     ),
     (
         'porsche/gt3rs/porsche-gt3-rs-interieur.jpeg',
-        4,
+        1,
         0
     ),
     (
         'porsche/gt3rs/porsche-gt3-rs-pneu.jpeg',
-        4,
+        1,
         0
     ),
     (
         'porsche/gt3rs/porsche-gt3-rs-siege.jpeg',
-        4,
+        1,
         0
     );
 -- Insertion des images pour l'Audi (idvoiture = 5)
@@ -121,7 +119,7 @@ INSERT INTO image (url_image, idvoiture, priorite)
 VALUES ('audi/Audi-rs6-abt-black.png', 5, 1),
     (
         'audi/Audi-rs6-abt-black_interieur.png',
-        5,
+        2,
         0
     ),
     ('audi/Audi-rs6-abt-black_arriere.png', 5, 0),
@@ -130,25 +128,25 @@ VALUES ('audi/Audi-rs6-abt-black.png', 5, 1),
 INSERT INTO image (url_image, idvoiture, priorite)
 VALUES (
         'porsche/macane/Porsche-macane-rouge.png',
-        6,
+        3,
         1
     ),
     (
         'porsche/macane/Porsche-macane-rouge-interieur.png',
-        6,
+        3,
         0
     ),
     (
         'porsche/macane/Porsche-macane-rouge-pneu.png',
-        6,
+        3,
         0
     ),
     (
         'porsche/macane/Porsche-macane-rouge-arriere.png',
-        6,
+        3,
         0
     );
-INSERT INTO Service (
+/* INSERT INTO Service (
         nom_service,
         titre_service,
         description_service,
@@ -171,7 +169,7 @@ VALUES (
         'Extension de garantie',
         'Extension de garantie 2 ans',
         'garantie.jpg'
-    );
+    ); */
 -- Insertion du contenu pour la Section Hero (Ligne 1)
 INSERT INTO contenu (lignecontenu, titre, texte, page)
 VALUES (
@@ -280,3 +278,7 @@ VALUES (
         'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1198.5492211244302!2d57.48494871408381!3d-20.24355594411807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5b16955dcd29%3A0xe6719b48c3b7a89a!2sMCCI%20Business%20School!5e0!3m2!1sfr!2smu!4v1700000000000!5m2!1sfr!2smu',
         'contact'
     );
+
+
+INSERT INTO login (id_client, mot_de_passe, role, date_inscription)
+VALUES (1, 'motdepasse123', 'admin', CURDATE());

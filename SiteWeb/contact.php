@@ -55,6 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -198,6 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="hours-row">
                             <span class="hours-day"><?= htmlspecialchars($dimanche['titre'] ?? 'Dimanche') ?></span>
                             <span class="hours-time closed"><?= htmlspecialchars($dimanche['texte'] ?? '10h00 – 15h00') ?></span>
+                            <span class="open-pill">Ouvert</span>
                         </div>
                     </div>
 
@@ -211,11 +215,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <p><?= htmlspecialchars($gmap['titre'] ?? 'MCCI Business School — Showroom principal SUPERCAR') ?></p>
                         </div>
 
+                        
                         <iframe
-                            src="<?= htmlspecialchars($gmap['texte'] ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1198.5492211244302!2d57.48494871408381!3d-20.24355594411807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x217c5b16955dcd29%3A0xe6719b48c3b7a89a!2sMCCI%20Business%20School!5e0!3m2!1sfr!2smu!4v1700000000000!5m2!1sfr!2smu') ?>"
-                            width="100%" style="min-height:380px; border:none; display:block;" loading="lazy"
-                            title="Localisation SUPERCAR" allowfullscreen>
+                            src="https://maps.google.com/maps?q=MCCI%20Business%20School%20Ebene&z=16&output=embed"
+                            width="100%"
+                            height="400"
+                            style="border:0;"
+                            allowfullscreen
+                            loading="lazy">
                         </iframe>
+
 
                         <div class="map-card-footer">
                             <div class="map-badge">
@@ -226,11 +235,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <i class="bi bi-p-circle-fill"></i>
                                 <span>Parking disponible</span>
                             </div>
+                            
                             <a class="btn-directions"
-                               href="https://www.google.com/maps/dir/?api=1&destination=MCCI+Business+School+Ebene"
-                               target="_blank" rel="noopener noreferrer">
+                            href="https://www.google.com/maps/dir/?api=1&destination=MCCI+Business+School+Ebene"
+                            target="_blank"
+                            rel="noopener noreferrer">
                                 <i class="bi bi-signpost-split-fill"></i> Itinéraire
                             </a>
+
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
     <div class="container-fluid px-4">
         <!-- Logo -->
         <a class="navbar-brand" href="index.php">
-            <img src="assets/images/logo.png" alt="SuperCar Logo" class="d-inline-block align-text-top">
+            <img src="../images/logo.png" alt="SuperCar Logo" class="d-inline-block align-text-top">
         </a>
 
         <!-- Toggle Button for Mobile -->

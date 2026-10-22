@@ -81,7 +81,7 @@ foreach ($hero_contents as $row) {
                     <label class="form-label">Image de fond (Hero)</label>
                     <div style="display: flex; gap: 15px; align-items: center;">
                         <?php if($edit_data['image']): ?>
-                            <img src="../SiteWeb/assets/images/<?= $edit_data['image'] ?>" style="width: 50px; height: 50px; border-radius: 5px; object-fit: cover; border: 1px solid #ddd;">
+                            <img src="../images/background/<?= $edit_data['image'] ?>" style="width: 50px; height: 50px; border-radius: 5px; object-fit: cover; border: 1px solid #ddd;">
                         <?php endif; ?>
                         <input type="file" name="image" class="form-input" style="padding: 8px;">
                     </div>
@@ -137,7 +137,7 @@ foreach ($hero_contents as $row) {
                                     <td style="font-weight: 700;"><?= $row['id_contenu'] ?></td>
                                     <td>
                                         <?php if($row['image']): ?>
-                                            <div style="width: 40px; height: 40px; border-radius: 4px; background: url('../SiteWeb/assets/images/<?= $row['image'] ?>') center/cover;"></div>
+                                            <div style="width: 40px; height: 40px; border-radius: 4px; background: url('../images/background/<?= $row['image'] ?>') center/cover;"></div>
                                         <?php else: ?>
                                             <div style="width: 40px; height: 40px; border-radius: 4px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #ccc;">
                                                 <i class="bi bi-image"></i>
@@ -168,7 +168,7 @@ foreach ($hero_contents as $row) {
         <div class="preview-container">
             <h3 class="preview-title"><i class="bi bi-eye"></i> Aperçu du rendu réel (1:1)</h3>
             <div class="hero-preview-wrapper">
-                <section class="hero-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../SiteWeb/assets/images/<?= $hero_main['image'] ?? 'background/porsche.jpg' ?>') center/cover;">
+                <section class="hero-section" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/background/<?= $hero_main['image'] ?? 'background/porsche.jpg' ?>') center/cover;">
                     <div class="hero-overlay"></div>
                     <div class="hero-content">
                         <h1 class="hero-title"><?= $hero_main ? $hero_main['titre'] : "Titre par défaut" ?></h1>

@@ -45,7 +45,7 @@ if (isset($_GET['succes'])) {
             <!-- Panneau Gauche : Image -->
             <div class="auth-panel-image login-image">
                 <div class="auth-overlay">
-                    <img src="assets/images/logo.png" alt="Supercar" class="auth-logo">
+                    <img src="../images/logo.png" alt="Supercar" class="auth-logo">
                     <h2>Bienvenue chez SUPERCAR</h2>
                     <p>L'excellence automobile à portée de main.</p>
                 </div>

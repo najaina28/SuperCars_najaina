@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="col-md-4 text-end">
                                         <?php if (!empty($service['image_service'])) { ?>
-                                            <img src="assets/images/<?php echo $service['image_service']; ?>" class="img-fluid rounded" alt="Service" style="max-height: 150px; width: 100%; object-fit: cover;">
+                                            <img src="../images/service/<?php echo $service['image_service']; ?>" class="img-fluid rounded" alt="Service" style="max-height: 150px; width: 100%; object-fit: cover;">
                                         <?php } else { ?>
                                             <img src="assets/images/background/servicedetails.webp" class="img-fluid rounded" alt="Moteur">
                                         <?php } ?>

@@ -11,7 +11,7 @@ if (isset($_POST['ajouter'])) {
     $tmp_name = $_FILES['image_service']['tmp_name'];
     $original_name = time() . "_" . $_FILES['image_service']['name'];
 
-    $upload_dir = __DIR__ . "/../../../SiteWeb/assets/images/";
+    $upload_dir = __DIR__ . "/../../../images/service/";
 
     if (!is_dir($upload_dir)) {
         mkdir($upload_dir, 0777, true);

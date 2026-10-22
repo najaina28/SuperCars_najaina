@@ -12,7 +12,7 @@
                 v.kilometrage,
                 v.carburant,
                 m.nom_marque,
-                (SELECT CONCAT('assets/images/', url_image) 
+                (SELECT CONCAT('../images/voiture/', url_image) 
                 FROM image i 
                 WHERE i.idvoiture = v.idvoiture 
                 ORDER BY i.priorite DESC, i.id_image ASC 
@@ -41,7 +41,7 @@
                 v.kilometrage,
                 v.carburant,
                 m.nom_marque,
-                (SELECT CONCAT('assets/images/', url_image) 
+                (SELECT CONCAT('../images/voiture/', url_image) 
                 FROM image i 
                 WHERE i.idvoiture = v.idvoiture 
                 ORDER BY i.priorite DESC, i.id_image ASC 
@@ -98,7 +98,7 @@
                    v.kilometrage,
                    v.carburant,
                    m.nom_marque,
-                   (SELECT CONCAT('assets/images/', i.url_image)
+                   (SELECT CONCAT('../images/voiture/', i.url_image)
                     FROM image i
                     WHERE i.idvoiture = v.idvoiture 
                     ORDER BY i.priorite DESC, i.id_image ASC 

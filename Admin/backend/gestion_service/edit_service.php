@@ -27,7 +27,7 @@ if (isset($_POST['update'])) {
     //Seulement si une image est envoyée
     if (!empty($_FILES['image_service']) && $_FILES['image_service']['error'] === 0) {
 
-        $upload_dir = __DIR__ . "/../../../SiteWeb/assets/images/";
+        $upload_dir = __DIR__ . "/../../../images/service/";
         if (!is_dir($upload_dir)) {
             mkdir($upload_dir, 0777, true);
         }
@@ -124,7 +124,7 @@ if (isset($_POST['update'])) {
                     <label>Image actuelle</label><br>
 
                     <?php if (!empty($service['image_service'])) { ?>
-                        <img src="../../../SiteWeb/assets/images/<?php echo $service['image_service']; ?>" 
+                        <img src="../../../images/service/<?php echo $service['image_service']; ?>" 
                             style="width:120px; height:120px; object-fit:cover; border-radius:10px; border:1px solid #ccc;">
                     <?php } else { ?>
                         <div style="width:120px; height:120px; display:flex; align-items:center; justify-content:center; border:1px dashed #ccc; border-radius:10px;">

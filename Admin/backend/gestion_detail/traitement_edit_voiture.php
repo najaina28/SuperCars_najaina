@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
 
     // AJOUT DES IMAGES
     if (!empty($_FILES['image']['name'][0])) {
-        $upload_dir = __DIR__ . "/../../../SiteWeb/assets/images/";
+        $upload_dir = __DIR__ . "/../../../images/voiture/";
         foreach ($_FILES['image']['tmp_name'] as $key => $tmp_name) {
             if ($_FILES['image']['error'][$key] === 0) {
                 $extension = pathinfo($_FILES['image']['name'][$key], PATHINFO_EXTENSION);

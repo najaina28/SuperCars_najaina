@@ -1,13 +1,12 @@
 <?php
 //définir vos paramètres serveur de connexion avec la base de donnéesz
-$host="localhost";
+$host="mysql-liantsoa.alwaysdata.net";
 // nom utilisateur
-$login="root";
+$login="liantsoa";
 // mot de passe
-$pass="";
+$pass="Ramanitrinihaja.16";
 // nom de la base de données
-$dbname="supercar";
-
+$dbname="liantsoa_bd";
 
 
 // établir la connexion avec la base de données
